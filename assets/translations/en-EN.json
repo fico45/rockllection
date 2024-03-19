@@ -1,0 +1,134 @@
+{
+    "appName": "Template",
+    "auth": {
+        "get-user-repository-error": "Failed fetching user",
+        "login": {
+            "title": "Sign in to your account",
+            "fields": {
+                "email": "Email",
+                "password": "Password"
+            },
+            "forgot-password": "Forgot password?",
+            "buttons": {
+                "submit": "Sign In",
+                "go-to-register": "Don't have an account?",
+                "sign-up": "Sign up"
+            },
+            "repository": {
+                "error": "Failed Sign in",
+                "success": "Signed In successfully!"
+            }
+        },
+        "forgot-password": {
+            "title": "Forgot password",
+            "fields": {
+                "email": "Email"
+            },
+            "buttons": {
+                "submit": "Send"
+            },
+            "repository": {
+                "success": "A new password has been sent to your email, please check your inbox",
+                "error": "Failed to send reset password email"
+            }
+        },
+        "register": {
+            "title": "Create an account",
+            "fields": {
+                "email": "Email",
+                "first-name": "First Name",
+                "last-name": "Last Name",
+                "password": "Password",
+                "repeat-password": "Repeat Password"
+            },
+            "buttons": {
+                "submit": "Sign Up",
+                "sign-in": "Sign in",
+                "go-to-login": "Already have an account?"
+            },
+            "repository": {
+                "error": "Failed Sign up",
+                "success": "Account created successfully!"
+            }
+        }
+    },
+    "home": {
+        "title": "Home",
+        "tabs": {
+            "1": "Home",
+            "2": "List",
+            "3": "Scan",
+            "4": "Profile"
+        },
+        "settings": {
+            "title": "Admin Settings",
+            "items": {
+                "company": "Company",
+                "users": "Users",
+                "locations": "Locations",
+                "tools": "Tools"
+            }
+        }
+    },
+    "debugTest": {
+        "title": "Debug test"
+    },
+    "profile": {
+        "title": "Profile",
+        "fields": {
+            "first-name": "First Name",
+            "last-name": "Last Name",
+            "email": "Email",
+            "password": "Password",
+            "repeat-password": "Repeat Password"
+        },
+        "buttons": {
+            "save": "Save"
+        },
+        "theme-toggle": {
+            "dark": "Dark mode",
+            "light": "Light mode",
+            "system": "System mode"
+        },
+        "repository": {
+            "put-success": "Profile updated successfully",
+            "put-error": "Failed to edit user",
+            "delete-success": "User deleted successfully",
+            "delete-error": "Failed to delete user"
+        }
+    },
+    "validation": {
+        "required": "This field is required",
+        "email": "Please enter a valid email address",
+        "password-minLength": "Password must be at least {} characters long",
+        "must-match-password": "Passwords do not match",
+        "photos-empty": "Please add at least one photo"
+    },
+    "button-state": {
+        "loading": "Loading...",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "cancel": "Cancel",
+        "add": "Add",
+        "load-more": "Load more"
+    },
+    "form-blocking-modal": {
+        "delete-account": {
+            "title": "Delete Account",
+            "content": "Are you sure you want to delete your account? This action cannot be undone.",
+            "buttons": {
+                "cancel": "No, go back",
+                "confirm": "Yes, delete my account"
+            }
+        },
+        "logout": {
+            "title": "Log out",
+            "content": "Are you sure you want to log out?",
+            "buttons": {
+                "cancel": "No, go back",
+                "confirm": "Yes, log out"
+            }
+        }
+    }
+}
