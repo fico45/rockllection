@@ -2,9 +2,9 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:flutter_template/modules/widgets/form/form_field_decorator.dart';
-import 'package:flutter_template/modules/widgets/form/helper_model/searchable_dropdown_item_model.dart';
-import 'package:flutter_template/utils/extensions.dart';
+import 'package:rockllection/modules/widgets/form/form_field_decorator.dart';
+import 'package:rockllection/modules/widgets/form/helper_model/searchable_dropdown_item_model.dart';
+import 'package:rockllection/utils/extensions.dart';
 
 class SearchableFormDropdownField<T> extends ReactiveFormField<T, T> {
   SearchableFormDropdownField({

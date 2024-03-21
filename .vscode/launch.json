@@ -6,7 +6,7 @@
     "configurations": [
         
         {
-            "name": "Template prod (debug mode)",
+            "name": "Rockllection prod (debug mode)",
             "request": "launch",
             "type": "dart",
             "args": [
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "name": "Template dev (debug mode)",
+            "name": "Rockllection dev (debug mode)",
             "request": "launch",
             "type": "dart",
             "args": [

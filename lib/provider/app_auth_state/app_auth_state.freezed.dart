@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'app_start_state.dart';
+part of 'app_auth_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,10 +12,10 @@ part of 'app_start_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AppStartState {
+mixin _$AppAuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -75,16 +75,16 @@ mixin _$AppStartState {
 }
 
 /// @nodoc
-abstract class $AppStartStateCopyWith<$Res> {
-  factory $AppStartStateCopyWith(
-          AppStartState value, $Res Function(AppStartState) then) =
-      _$AppStartStateCopyWithImpl<$Res, AppStartState>;
+abstract class $AppAuthStateCopyWith<$Res> {
+  factory $AppAuthStateCopyWith(
+          AppAuthState value, $Res Function(AppAuthState) then) =
+      _$AppAuthStateCopyWithImpl<$Res, AppAuthState>;
 }
 
 /// @nodoc
-class _$AppStartStateCopyWithImpl<$Res, $Val extends AppStartState>
-    implements $AppStartStateCopyWith<$Res> {
-  _$AppStartStateCopyWithImpl(this._value, this._then);
+class _$AppAuthStateCopyWithImpl<$Res, $Val extends AppAuthState>
+    implements $AppAuthStateCopyWith<$Res> {
+  _$AppAuthStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -101,7 +101,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AppStartStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$AppAuthStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -115,7 +115,7 @@ class _$InitialImpl extends _Initial {
 
   @override
   String toString() {
-    return 'AppStartState.initial()';
+    return 'AppAuthState.initial()';
   }
 
   @override
@@ -208,7 +208,7 @@ class _$InitialImpl extends _Initial {
   }
 }
 
-abstract class _Initial extends AppStartState {
+abstract class _Initial extends AppAuthState {
   const factory _Initial() = _$InitialImpl;
   const _Initial._() : super._();
 }
@@ -222,7 +222,7 @@ abstract class _$$UnauthenticatedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UnauthenticatedImplCopyWithImpl<$Res>
-    extends _$AppStartStateCopyWithImpl<$Res, _$UnauthenticatedImpl>
+    extends _$AppAuthStateCopyWithImpl<$Res, _$UnauthenticatedImpl>
     implements _$$UnauthenticatedImplCopyWith<$Res> {
   __$$UnauthenticatedImplCopyWithImpl(
       _$UnauthenticatedImpl _value, $Res Function(_$UnauthenticatedImpl) _then)
@@ -236,7 +236,7 @@ class _$UnauthenticatedImpl extends Unauthenticated {
 
   @override
   String toString() {
-    return 'AppStartState.unauthenticated()';
+    return 'AppAuthState.unauthenticated()';
   }
 
   @override
@@ -329,7 +329,7 @@ class _$UnauthenticatedImpl extends Unauthenticated {
   }
 }
 
-abstract class Unauthenticated extends AppStartState {
+abstract class Unauthenticated extends AppAuthState {
   const factory Unauthenticated() = _$UnauthenticatedImpl;
   const Unauthenticated._() : super._();
 }
@@ -343,7 +343,7 @@ abstract class _$$InternetUnAvailableImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InternetUnAvailableImplCopyWithImpl<$Res>
-    extends _$AppStartStateCopyWithImpl<$Res, _$InternetUnAvailableImpl>
+    extends _$AppAuthStateCopyWithImpl<$Res, _$InternetUnAvailableImpl>
     implements _$$InternetUnAvailableImplCopyWith<$Res> {
   __$$InternetUnAvailableImplCopyWithImpl(_$InternetUnAvailableImpl _value,
       $Res Function(_$InternetUnAvailableImpl) _then)
@@ -357,7 +357,7 @@ class _$InternetUnAvailableImpl extends _InternetUnAvailable {
 
   @override
   String toString() {
-    return 'AppStartState.internetUnAvailable()';
+    return 'AppAuthState.internetUnAvailable()';
   }
 
   @override
@@ -451,7 +451,7 @@ class _$InternetUnAvailableImpl extends _InternetUnAvailable {
   }
 }
 
-abstract class _InternetUnAvailable extends AppStartState {
+abstract class _InternetUnAvailable extends AppAuthState {
   const factory _InternetUnAvailable() = _$InternetUnAvailableImpl;
   const _InternetUnAvailable._() : super._();
 }
@@ -465,7 +465,7 @@ abstract class _$$AppAuthenticatedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$AppAuthenticatedImplCopyWithImpl<$Res>
-    extends _$AppStartStateCopyWithImpl<$Res, _$AppAuthenticatedImpl>
+    extends _$AppAuthStateCopyWithImpl<$Res, _$AppAuthenticatedImpl>
     implements _$$AppAuthenticatedImplCopyWith<$Res> {
   __$$AppAuthenticatedImplCopyWithImpl(_$AppAuthenticatedImpl _value,
       $Res Function(_$AppAuthenticatedImpl) _then)
@@ -479,7 +479,7 @@ class _$AppAuthenticatedImpl extends AppAuthenticated {
 
   @override
   String toString() {
-    return 'AppStartState.authenticated()';
+    return 'AppAuthState.authenticated()';
   }
 
   @override
@@ -572,7 +572,7 @@ class _$AppAuthenticatedImpl extends AppAuthenticated {
   }
 }
 
-abstract class AppAuthenticated extends AppStartState {
+abstract class AppAuthenticated extends AppAuthState {
   const factory AppAuthenticated() = _$AppAuthenticatedImpl;
   const AppAuthenticated._() : super._();
 }
@@ -588,7 +588,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$AppStartStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$AppAuthStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -618,7 +618,7 @@ class _$ErrorImpl extends _Error {
 
   @override
   String toString() {
-    return 'AppStartState.error(error: $error)';
+    return 'AppAuthState.error(error: $error)';
   }
 
   @override
@@ -719,7 +719,7 @@ class _$ErrorImpl extends _Error {
   }
 }
 
-abstract class _Error extends AppStartState {
+abstract class _Error extends AppAuthState {
   const factory _Error(final Exception error) = _$ErrorImpl;
   const _Error._() : super._();
 

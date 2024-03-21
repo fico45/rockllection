@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class MyFacts {
@@ -44,6 +46,8 @@ class MyLayout {
 
 class MyScroll {
   const MyScroll();
-  ScrollPhysics get scrollPhysics => const BouncingScrollPhysics()
-      .applyTo(const AlwaysScrollableScrollPhysics());
+  ScrollPhysics get scrollPhysics => Platform.isAndroid
+      ? const ClampingScrollPhysics()
+      : const BouncingScrollPhysics()
+          .applyTo(const AlwaysScrollableScrollPhysics());
 }

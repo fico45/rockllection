@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/theme/theme_data.dart';
-import 'package:flutter_template/utils/consts.dart';
-import 'package:flutter_template/utils/extensions.dart';
+import 'package:rockllection/theme/theme_data.dart';
+import 'package:rockllection/utils/consts.dart';
+import 'package:rockllection/utils/extensions.dart';
 
 enum ButtonType {
   primary,

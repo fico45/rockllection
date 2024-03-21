@@ -1,5 +1,5 @@
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:flutter_template/utils/consts.dart';
+import 'package:rockllection/utils/consts.dart';
 
 /// Represents a [FormGroup] validator that requires that two controls in the
 /// group have the same values.

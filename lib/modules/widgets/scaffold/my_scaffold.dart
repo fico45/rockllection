@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/provider/async_loading/async_loading_provider.dart';
-import 'package:flutter_template/utils/extensions.dart';
+import 'package:rockllection/provider/async_loading/async_loading_provider.dart';
+import 'package:rockllection/utils/extensions.dart';
 
 class MyScaffold extends ConsumerWidget {
   const MyScaffold({

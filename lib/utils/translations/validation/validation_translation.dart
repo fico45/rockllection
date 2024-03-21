@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_template/utils/consts.dart';
+import 'package:rockllection/utils/consts.dart';
 
 class ValidationTr {
   const ValidationTr();

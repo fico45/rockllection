@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/auth/auth_screen.dart';
-import 'package:flutter_template/modules/home/home.dart';
-import 'package:flutter_template/provider/app_start/app_start_provider.dart';
-import 'package:flutter_template/utils/extensions.dart';
-import 'package:flutter_template/utils/translations/translations.dart';
+import 'package:rockllection/modules/auth/auth_screen.dart';
+import 'package:rockllection/modules/home/home.dart';
+import 'package:rockllection/provider/app_auth_state/app_auth_state_provider.dart';
+import 'package:rockllection/utils/extensions.dart';
+import 'package:rockllection/utils/translations/translations.dart';
 
 class AppStartScreen extends ConsumerStatefulWidget {
   const AppStartScreen({super.key});
@@ -19,13 +19,13 @@ class AppStartScreen extends ConsumerStatefulWidget {
 class _AppStartScreenState extends ConsumerState<AppStartScreen> {
   @override
   void initState() {
-    ref.read(appStartProvider.notifier).initApp();
+    ref.read(authStateProvider.notifier).initApp();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(appStartProvider);
+    final state = ref.watch(authStateProvider);
 
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 300),

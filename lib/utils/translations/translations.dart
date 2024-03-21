@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_template/utils/translations/auth/auth_translation.dart';
-import 'package:flutter_template/utils/translations/button_state/button_state_translation.dart';
-import 'package:flutter_template/utils/translations/form_blocking_modal/form_blocking_modal_translations.dart';
-import 'package:flutter_template/utils/translations/home/home_translations.dart';
-import 'package:flutter_template/utils/translations/profile/profile_translations.dart';
-import 'package:flutter_template/utils/translations/validation/validation_translation.dart';
+import 'package:rockllection/utils/translations/auth/auth_translation.dart';
+import 'package:rockllection/utils/translations/button_state/button_state_translation.dart';
+import 'package:rockllection/utils/translations/form_blocking_modal/form_blocking_modal_translations.dart';
+import 'package:rockllection/utils/translations/home/home_translations.dart';
+import 'package:rockllection/utils/translations/profile/profile_translations.dart';
+import 'package:rockllection/utils/translations/validation/validation_translation.dart';
 
 class MyTranslations {
   static String get appName => 'appName'.tr();

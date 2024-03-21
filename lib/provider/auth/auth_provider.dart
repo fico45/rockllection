@@ -1,10 +1,10 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:flutter_template/model/auth_model.dart';
-import 'package:flutter_template/provider/app_start/app_start_provider.dart';
-import 'package:flutter_template/provider/app_start/app_start_state.dart';
-import 'package:flutter_template/provider/auth/token_provider.dart';
-import 'package:flutter_template/repository/auth/auth_repository.dart';
+import 'package:rockllection/model/auth_model.dart';
+import 'package:rockllection/provider/app_auth_state/app_auth_state.dart';
+import 'package:rockllection/provider/app_auth_state/app_auth_state_provider.dart';
+import 'package:rockllection/provider/auth/token_provider.dart';
+import 'package:rockllection/repository/auth/auth_repository.dart';
 
 part 'auth_provider.g.dart';
 
@@ -16,7 +16,7 @@ class Auth extends _$Auth {
   AuthModel get user => state;
 
   Future<void> signIn({required String email, required String password}) async {
-    final appState = ref.read(appStartProvider);
+    final appState = ref.read(authStateProvider);
     /*  final response = await ref
         .read(authRepositoryProvider)
         .signInWithPassword(email: email, password: password);
@@ -31,18 +31,18 @@ class Auth extends _$Auth {
               token: response.data['token'] ?? '',
             ),
             ref.read(tokenProviderProvider).saveToken(response.data['token']),
-            ref.read(appStartProvider.notifier).changeAppState(
-                  newState: const AppStartState.authenticated(),
+            ref.read(authStateProvider.notifier).changeAppState(
+                  newState: const AppAuthState.authenticated(),
                 )
           }
         : {
             state = const AuthModel.signedOut(),
-            ref.read(appStartProvider.notifier).changeAppState(
-                  newState: const AppStartState.unauthenticated(),
+            ref.read(authStateProvider.notifier).changeAppState(
+                  newState: const AppAuthState.unauthenticated(),
                 )
           }; */
-    ref.read(appStartProvider.notifier).changeAppState(
-          newState: const AppStartState.authenticated(),
+    ref.read(authStateProvider.notifier).changeAppState(
+          newState: const AppAuthState.authenticated(),
         );
   }
 
@@ -63,8 +63,8 @@ class Auth extends _$Auth {
     final token = await ref.read(tokenProviderProvider).fetchToken();
     if (token == null) {
       state = const AuthModel.signedOut();
-      ref.read(appStartProvider.notifier).changeAppState(
-            newState: const AppStartState.unauthenticated(),
+      ref.read(authStateProvider.notifier).changeAppState(
+            newState: const AppAuthState.unauthenticated(),
           );
       return null;
     }
@@ -73,13 +73,13 @@ class Auth extends _$Auth {
       var responseWithToken = response.data;
       responseWithToken['token'] = token;
       state = AuthModel.getUserFromJson(data: responseWithToken);
-      ref.read(appStartProvider.notifier).changeAppState(
-            newState: const AppStartState.authenticated(),
+      ref.read(authStateProvider.notifier).changeAppState(
+            newState: const AppAuthState.authenticated(),
           );
     } else {
       state = const AuthModel.signedOut();
-      ref.read(appStartProvider.notifier).changeAppState(
-            newState: const AppStartState.unauthenticated(),
+      ref.read(authStateProvider.notifier).changeAppState(
+            newState: const AppAuthState.unauthenticated(),
           );
     }
     return state;

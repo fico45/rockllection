@@ -1,15 +1,16 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_template/modules/widgets/scroll_wrappers/scroll_wrapper.dart';
-import 'package:flutter_template/utils/consts.dart';
-import 'package:flutter_template/utils/extensions.dart';
+import 'package:rockllection/modules/widgets/scroll_wrappers/scroll_wrapper.dart';
+import 'package:rockllection/utils/consts.dart';
+import 'package:rockllection/utils/extensions.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class MyBottomSheet {
   static Future<dynamic> showBottomSheet({
     required BuildContext context,
     required Widget content,
+    String? title,
   }) {
     const topBorderRadius = Radius.circular(25.0);
 
@@ -27,18 +28,14 @@ class MyBottomSheet {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SheetAppBar(),
+              SheetAppBar(
+                title: title,
+              ),
               Expanded(
                 child: ScrollWrapper(
                   child: Column(
                     children: [
                       content,
-                      for (int i = 0; i < 20; i++) ...[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(height: 50, color: Colors.blue),
-                        ),
-                      ],
                       SizedBox(
                         height: MediaQuery.of(context).viewInsets.bottom,
                       ),
@@ -55,6 +52,9 @@ class MyBottomSheet {
         context: context,
         isDismissible: false,
         enableDrag: false,
+        useSafeArea: true,
+        useRootNavigator: true,
+        isScrollControlled: true,
         barrierColor: context.colorScheme.onBackground.withOpacity(0.25),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: topBorderRadius),
@@ -66,18 +66,15 @@ class MyBottomSheet {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const SheetAppBar(),
+                SheetAppBar(
+                  title: title,
+                ),
                 Expanded(
                   child: ScrollWrapper(
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         content,
-                        for (int i = 0; i < 20; i++) ...[
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(height: 50, color: Colors.blue),
-                          ),
-                        ],
                         SizedBox(
                           height: MediaQuery.of(context).viewInsets.bottom,
                         ),
@@ -95,13 +92,13 @@ class MyBottomSheet {
 }
 
 class SheetAppBar extends StatelessWidget {
-  const SheetAppBar({super.key});
-
+  const SheetAppBar({this.title, super.key});
+  final String? title;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: context.colorScheme.tertiary,
+        color: context.colorScheme.surfaceVariant,
         borderRadius: Platform.isIOS
             ? null
             : const BorderRadius.only(
@@ -116,6 +113,10 @@ class SheetAppBar extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(Icons.more_horiz),
           ),
+          if (title != null) ...[
+            const Spacer(),
+            Text(title!),
+          ],
           const Spacer(),
           IconButton(
             onPressed: () {

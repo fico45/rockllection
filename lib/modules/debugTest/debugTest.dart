@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/widgets/buttons/button.dart';
-import 'package:flutter_template/provider/auth/auth_provider.dart';
-import 'package:flutter_template/provider/auth/token_provider.dart';
-import 'package:flutter_template/utils/consts.dart';
-import 'package:flutter_template/utils/toast.dart';
-import 'package:flutter_template/utils/extensions.dart';
+import 'package:rockllection/modules/widgets/buttons/button.dart';
+import 'package:rockllection/provider/auth/auth_provider.dart';
+import 'package:rockllection/provider/auth/token_provider.dart';
+import 'package:rockllection/utils/consts.dart';
+import 'package:rockllection/utils/toast.dart';
+import 'package:rockllection/utils/extensions.dart';
 
 class DebugTest extends ConsumerWidget {
   const DebugTest({super.key});

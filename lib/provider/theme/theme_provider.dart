@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:flutter_template/utils/storage/prefs.dart';
-import 'package:flutter_template/utils/toast.dart';
+import 'package:rockllection/utils/storage/prefs.dart';
+import 'package:rockllection/utils/toast.dart';
 
 part 'theme_provider.g.dart';
 

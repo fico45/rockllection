@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     
     <application
-        android:label="Flutter Template dev"
+        android:label="Rockllection dev"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         tools:replace="android:label">
@@ -33,7 +33,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="flutter_template" android:host="com.filipNovosel.flutter_template.dev" />
+                <data android:scheme="rockllection" android:host="com.filipNovosel.rockllection.dev" />
                 <data android:scheme="https" android:host="" />
             </intent-filter>
         </activity>

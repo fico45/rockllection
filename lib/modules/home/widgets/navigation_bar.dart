@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/provider/home/home_navigation_provider.dart';
-import 'package:flutter_template/provider/theme/theme_provider.dart';
-import 'package:flutter_template/utils/extensions.dart';
-import 'package:flutter_template/utils/translations/translations.dart';
+import 'package:rockllection/provider/home/home_navigation_provider.dart';
+import 'package:rockllection/provider/theme/theme_provider.dart';
+import 'package:rockllection/utils/extensions.dart';
+import 'package:rockllection/utils/translations/translations.dart';
 
 class BottomNavBar extends ConsumerWidget {
   const BottomNavBar({super.key});

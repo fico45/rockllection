@@ -1,5 +1,5 @@
 {
-    "appName": "Template",
+    "appName": "Rockllection",
     "auth": {
         "get-user-repository-error": "Failed fetching user",
         "login": {

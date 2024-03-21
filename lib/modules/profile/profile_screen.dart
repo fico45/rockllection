@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/profile/widgets/profile_list_item.dart';
-import 'package:flutter_template/provider/theme/theme_provider.dart';
-import 'package:flutter_template/utils/consts.dart';
-import 'package:flutter_template/utils/extensions.dart';
-import 'package:flutter_template/utils/translations/translations.dart';
+import 'package:rockllection/modules/profile/widgets/profile_list_item.dart';
+import 'package:rockllection/provider/theme/theme_provider.dart';
+import 'package:rockllection/utils/consts.dart';
+import 'package:rockllection/utils/extensions.dart';
+import 'package:rockllection/utils/translations/translations.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});

@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'app_start_provider.dart';
+part of 'app_auth_state_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appStartHash() => r'7cec8d9a753670bb38e369439a5043f1269c939a';
+String _$authStateHash() => r'52f22beee81bfd26ac17715fd01ab3b774f3d5b5';
 
-/// See also [AppStart].
-@ProviderFor(AppStart)
-final appStartProvider = NotifierProvider<AppStart, AppStartState>.internal(
-  AppStart.new,
-  name: r'appStartProvider',
+/// See also [AuthState].
+@ProviderFor(AuthState)
+final authStateProvider = NotifierProvider<AuthState, AppAuthState>.internal(
+  AuthState.new,
+  name: r'authStateProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$appStartHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$authStateHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$AppStart = Notifier<AppStartState>;
+typedef _$AuthState = Notifier<AppAuthState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

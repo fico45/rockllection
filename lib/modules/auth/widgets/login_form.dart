@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/widgets/buttons/button.dart';
-import 'package:flutter_template/modules/widgets/buttons/form_button.dart';
-import 'package:flutter_template/modules/widgets/form/form_text_field.dart';
-import 'package:flutter_template/provider/auth/auth_provider.dart';
-import 'package:flutter_template/provider/form_validator/form_validator_provider.dart';
-import 'package:flutter_template/utils/consts.dart';
-import 'package:flutter_template/modules/auth/auth_controller.dart';
-import 'package:flutter_template/utils/extensions.dart';
-import 'package:flutter_template/utils/translations/translations.dart';
+import 'package:rockllection/modules/widgets/buttons/button.dart';
+import 'package:rockllection/modules/widgets/buttons/form_button.dart';
+import 'package:rockllection/modules/widgets/form/form_text_field.dart';
+import 'package:rockllection/provider/auth/auth_provider.dart';
+import 'package:rockllection/provider/form_validator/form_validator_provider.dart';
+import 'package:rockllection/utils/consts.dart';
+import 'package:rockllection/modules/auth/auth_controller.dart';
+import 'package:rockllection/utils/extensions.dart';
+import 'package:rockllection/utils/translations/translations.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
   const LoginForm({super.key});
@@ -78,6 +78,18 @@ class _LoginFormState extends ConsumerState<LoginForm> {
               password: form.control('password').value,
             );
           },
+        ),
+        SizedBox(
+          height: MyFacts.size.sizeM,
+        ),
+        IconButton(
+          onPressed: () async {
+            await controller.googleSignIn();
+          },
+          icon: Image.asset(
+            'assets/icons/google.png',
+            width: 30,
+          ),
         ),
         SizedBox(
           height: MyFacts.size.sizeM,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/utils/storage/secure_storage.dart';
+import 'package:rockllection/utils/storage/secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Prefs {

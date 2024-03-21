@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/modules/debugTest/debugTest.dart';
-import 'package:flutter_template/modules/home/widgets/navigation_bar.dart';
-import 'package:flutter_template/modules/widgets/bottom_sheet/bottom_sheet.dart';
-import 'package:flutter_template/modules/widgets/buttons/button.dart';
-import 'package:flutter_template/modules/widgets/scaffold/my_app_bar.dart';
-import 'package:flutter_template/modules/widgets/scaffold/my_scaffold.dart';
-import 'package:flutter_template/provider/home/home_navigation_provider.dart';
-import 'package:flutter_template/utils/translations/translations.dart';
+import 'package:rockllection/modules/debugTest/debugTest.dart';
+import 'package:rockllection/modules/home/widgets/navigation_bar.dart';
+import 'package:rockllection/modules/widgets/bottom_sheet/bottom_sheet.dart';
+import 'package:rockllection/modules/widgets/buttons/button.dart';
+import 'package:rockllection/modules/widgets/scaffold/my_app_bar.dart';
+import 'package:rockllection/modules/widgets/scaffold/my_scaffold.dart';
+import 'package:rockllection/provider/home/home_navigation_provider.dart';
+import 'package:rockllection/utils/translations/translations.dart';
 
 class Home extends ConsumerWidget {
   const Home({super.key});

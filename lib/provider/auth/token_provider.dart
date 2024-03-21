@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_template/utils/storage/secure_storage.dart';
+import 'package:rockllection/utils/storage/secure_storage.dart';
 
 part 'token_provider.g.dart';
 

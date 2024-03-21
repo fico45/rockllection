@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:flutter_template/utils/api/api.dart';
-import 'package:flutter_template/utils/toast.dart';
+import 'package:rockllection/utils/api/api.dart';
+import 'package:rockllection/utils/toast.dart';
 
 part 'auth_repository.g.dart';
 
@@ -35,14 +35,14 @@ class AuthRepository {
     required String password,
   }) async {
     try {
-      final response = await ref
+      /*   final response = await ref
           .read(apiProvider)
           .post('api/v1/integrations/ecommerce/members/login', {
         'username': email,
         'password': password,
-      });
+      }); */
 
-      return response;
+      return null;
     } on DioException catch (e) {
       ref.read(toastProvider).showToastMessage(
             message: 'Neuspješni Login',
@@ -54,11 +54,11 @@ class AuthRepository {
 
   Future<Response?> getUser() async {
     try {
-      final response = await ref
+      /*  final response = await ref
           .read(apiProvider)
-          .get('api/v1/integrations/ecommerce/members/me');
+          .get('api/v1/integrations/ecommerce/members/me'); */
 
-      return response;
+      return null;
     } on DioException catch (e) {
       ref.read(toastProvider).showToastMessage(
             message: 'Greška pri dohvaćanju korisnika',

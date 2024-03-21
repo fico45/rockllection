@@ -1,10 +1,10 @@
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:flutter_template/modules/home/home.dart';
-import 'package:flutter_template/provider/navigator/navigator_key_provider.dart';
-import 'package:flutter_template/modules/auth/auth_screen.dart';
-import 'package:flutter_template/modules/debugTest/debugTest.dart';
-import 'package:flutter_template/modules/splash/splash_page.dart';
+import 'package:rockllection/modules/home/home.dart';
+import 'package:rockllection/provider/navigator/navigator_key_provider.dart';
+import 'package:rockllection/modules/auth/auth_screen.dart';
+import 'package:rockllection/modules/debugTest/debugTest.dart';
+import 'package:rockllection/modules/splash/splash_page.dart';
 
 part 'router_provider.g.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/utils/consts.dart';
-import 'package:flutter_template/utils/extensions.dart';
+import 'package:rockllection/utils/consts.dart';
+import 'package:rockllection/utils/extensions.dart';
 
 class MyLogo extends StatelessWidget {
   const MyLogo({super.key});

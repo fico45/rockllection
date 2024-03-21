@@ -1,4 +1,4 @@
-package com.filipNovosel.flutter_template
+package com.filipNovosel.rockllection
 
 import io.flutter.embedding.android.FlutterActivity
 

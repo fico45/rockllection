@@ -2,8 +2,8 @@
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_template/provider/auth/auth_provider.dart';
-import 'package:flutter_template/utils/api/supabase.dart';
+import 'package:rockllection/provider/auth/auth_provider.dart';
+import 'package:rockllection/utils/api/supabase.dart';
 
 part 'auth_subscription.g.dart';
 

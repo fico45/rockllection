@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:flutter_template/provider/navigator/navigator_key_provider.dart';
+import 'package:rockllection/provider/navigator/navigator_key_provider.dart';
+import 'package:rockllection/utils/consts.dart';
 
 part 'toast.g.dart';
 
@@ -57,7 +58,7 @@ class Toast {
       fadeDuration: const Duration(milliseconds: 160),
       positionedToastBuilder: (context, child) {
         return Positioned(
-          top: 16,
+          bottom: MyFacts.size.sizeM + MyFacts.padding.bottomSafeAreaPadding,
           right: 16,
           left: 16,
           child: child,

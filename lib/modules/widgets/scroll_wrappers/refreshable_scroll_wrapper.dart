@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_template/utils/consts.dart';
+import 'package:rockllection/utils/consts.dart';
 
 class RefreshableScrollWrapper extends StatelessWidget {
   const RefreshableScrollWrapper({

@@ -1,5 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_template/utils/consts.dart';
+import 'package:rockllection/utils/consts.dart';
 
 class ScrollWrapper extends StatelessWidget {
   const ScrollWrapper({required this.child, super.key});
@@ -7,6 +9,7 @@ class ScrollWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isAndroid = Platform.isAndroid;
     return Scrollbar(
       child: CustomScrollView(
         physics: MyFacts.scroll.scrollPhysics,
