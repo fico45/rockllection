@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rockllection/modules/widgets/circle_avatar/circle_avatar.dart';
+import 'package:rockllection/provider/auth/auth_provider.dart';
 import 'package:rockllection/utils/consts.dart';
 import 'package:rockllection/utils/extensions.dart';
 
@@ -15,6 +17,7 @@ class MyAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.read(authProvider);
     return AppBar(
       backgroundColor: context.colorScheme.background,
       title: Text(
@@ -24,7 +27,15 @@ class MyAppBar extends ConsumerWidget implements PreferredSizeWidget {
           fontWeight: FontWeight.w600,
         ),
       ),
-      actions: actions,
+      actions: [
+        if (actions != null) ...actions!,
+        user.maybeWhen(
+          orElse: () => const SizedBox.shrink(),
+          signedIn: (id, displayName, email, token, picture, emailVerified) {
+            return MyCircleAvatar(picture: picture);
+          },
+        ),
+      ],
     );
   }
 }
