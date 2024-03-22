@@ -23,7 +23,7 @@ class Auth extends _$Auth {
         state = AuthModel.signedIn(
           id: data.session?.user.id ?? '',
           displayName: data.session?.user.aud ?? '',
-          email: data.session?.user!.email! ?? '',
+          email: data.session?.user.email! ?? '',
           token: data.session?.accessToken ?? '',
           picture: data.session?.user.userMetadata?['picture'] ?? '',
           emailVerified:

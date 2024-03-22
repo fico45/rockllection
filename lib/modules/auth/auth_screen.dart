@@ -3,8 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rockllection/modules/auth/widgets/logo.dart';
 import 'package:rockllection/modules/widgets/bottom_sheet/bottom_sheet.dart';
 import 'package:rockllection/modules/widgets/scaffold/my_scaffold.dart';
-import 'package:rockllection/provider/app_auth_state/app_auth_state.dart';
-import 'package:rockllection/provider/app_auth_state/app_auth_state_provider.dart';
 import 'package:rockllection/utils/api/api.dart';
 import 'package:rockllection/utils/translations/translations.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -15,7 +13,6 @@ import 'package:rockllection/modules/widgets/buttons/text_button.dart';
 import 'package:rockllection/modules/widgets/scroll_wrappers/scroll_wrapper.dart';
 import 'package:rockllection/utils/consts.dart';
 import 'package:rockllection/utils/extensions.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthScreen extends ConsumerStatefulWidget {
   const AuthScreen({super.key});
@@ -49,6 +46,7 @@ class _AuthPageState extends ConsumerState<AuthScreen> {
       },
       child: MyScaffold(
         body: ScrollWrapper(
+          overrideScrollBody: true,
           child: Padding(
             padding: MyFacts.padding.formPadding,
             child: ReactiveForm(

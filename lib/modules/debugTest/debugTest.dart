@@ -43,32 +43,38 @@ class DebugTest extends ConsumerWidget {
                     child: Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'ID',
-                              style: context.textTheme.bodyLarge!.copyWith(
-                                color: context.colorScheme.onBackground,
+                            SizedBox(
+                              width: MyFacts.size.sizeXXL,
+                              child: Text(
+                                'ID',
+                                style: context.textTheme.bodyLarge!.copyWith(
+                                  color: context.colorScheme.onBackground,
+                                ),
                               ),
                             ),
                             SizedBox(
                               width: MyFacts.size.sizeM,
                             ),
-                            Text(
-                              id,
-                              style: context.textTheme.bodyLarge!.copyWith(
-                                color: context.colorScheme.onBackground,
+                            Expanded(
+                              child: Text(
+                                id,
+                                style: context.textTheme.bodyLarge!.copyWith(
+                                  color: context.colorScheme.onBackground,
+                                ),
                               ),
                             ),
                           ],
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Name',
-                              style: context.textTheme.bodyLarge!.copyWith(
-                                color: context.colorScheme.onBackground,
+                            SizedBox(
+                              width: MyFacts.size.sizeXXL,
+                              child: Text(
+                                'Name',
+                                style: context.textTheme.bodyLarge!.copyWith(
+                                  color: context.colorScheme.onBackground,
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -83,12 +89,14 @@ class DebugTest extends ConsumerWidget {
                           ],
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'E-mail',
-                              style: context.textTheme.bodyLarge!.copyWith(
-                                color: context.colorScheme.onBackground,
+                            SizedBox(
+                              width: MyFacts.size.sizeXXL,
+                              child: Text(
+                                'E-mail',
+                                style: context.textTheme.bodyLarge!.copyWith(
+                                  color: context.colorScheme.onBackground,
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -103,12 +111,14 @@ class DebugTest extends ConsumerWidget {
                           ],
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Token',
-                              style: context.textTheme.bodyLarge!.copyWith(
-                                color: context.colorScheme.onBackground,
+                            SizedBox(
+                              width: MyFacts.size.sizeXXL,
+                              child: Text(
+                                'Token',
+                                style: context.textTheme.bodyLarge!.copyWith(
+                                  color: context.colorScheme.onBackground,
+                                ),
                               ),
                             ),
                             SizedBox(

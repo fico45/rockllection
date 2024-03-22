@@ -18,6 +18,5 @@ class MyCircleAvatar extends StatelessWidget {
         backgroundImage: NetworkImage(picture),
       ),
     );
-    ;
   }
 }
