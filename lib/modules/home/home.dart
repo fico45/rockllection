@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rockllection/modules/debugTest/debugTest.dart';
 import 'package:rockllection/modules/home/widgets/navigation_bar.dart';
+import 'package:rockllection/modules/profile/profile_screen.dart';
 import 'package:rockllection/modules/widgets/bottom_sheet/bottom_sheet.dart';
 import 'package:rockllection/modules/widgets/buttons/button.dart';
 import 'package:rockllection/modules/widgets/scaffold/my_app_bar.dart';
@@ -47,6 +48,7 @@ class Home extends ConsumerWidget {
                 onPressed: () async {
                   await MyBottomSheet.showBottomSheet(
                     context: context,
+                    title: 'Test',
                     content: Text('Hello'),
                   );
                 },
@@ -56,9 +58,7 @@ class Home extends ConsumerWidget {
           1 => Center(
               child: Text('Settings page'),
             ),
-          2 => Center(
-              child: Text('Scan page'),
-            ),
+          2 => ProfileScreen(),
           3 => DebugTest(),
           // TODO: Handle this case.
           int() => null,

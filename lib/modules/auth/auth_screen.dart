@@ -36,16 +36,7 @@ class _AuthPageState extends ConsumerState<AuthScreen> {
     super.initState();
   }
 
-  void _setupAuthListener() {
-    supabase.instance.auth.onAuthStateChange.listen((data) {
-      final event = data.event;
-      if (event == AuthChangeEvent.signedIn) {
-        ref
-            .read(authStateProvider.notifier)
-            .changeAppState(newState: const AppAuthState.authenticated());
-      }
-    });
-  }
+  void _setupAuthListener() {}
 
   @override
   Widget build(BuildContext context) {
@@ -57,31 +48,28 @@ class _AuthPageState extends ConsumerState<AuthScreen> {
         form.markAllAsTouched();
       },
       child: MyScaffold(
-        body: ReactiveForm(
-          formGroup: form,
-          child: ScrollWrapper(
-            child: Padding(
-              padding: MyFacts.padding.formPadding,
+        body: ScrollWrapper(
+          child: Padding(
+            padding: MyFacts.padding.formPadding,
+            child: ReactiveForm(
+              formGroup: form,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).padding.top,
-                      ),
-                      const MyLogo(),
-                      SizedBox(
-                        height: MyFacts.size.sizeXXS,
-                      ),
-                      Text(
-                        MyTranslations.auth.login.title,
-                        style: context.textTheme.bodySmall!.copyWith(
-                          color: context.colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                    ],
+                  SizedBox(
+                    height:
+                        MediaQuery.of(context).padding.top + MyFacts.size.sizeS,
+                  ),
+                  const MyLogo(),
+                  SizedBox(
+                    height: MyFacts.size.sizeXXS,
+                  ),
+                  Text(
+                    MyTranslations.auth.login.title,
+                    style: context.textTheme.bodySmall!.copyWith(
+                      color: context.colorScheme.onSurfaceVariant,
+                    ),
                   ),
                   const Spacer(),
                   LoginForm(),
@@ -104,46 +92,37 @@ class _AuthPageState extends ConsumerState<AuthScreen> {
                     ],
                   ),
                   const Spacer(),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Column(
-                      children: [
-                        CustomTextButton(
-                          child: RichText(
-                            text: TextSpan(
-                              text: MyTranslations
-                                  .auth.login.buttons.goToRegister,
-                              style: context.textTheme.bodySmall!.copyWith(
-                                color: context.colorScheme.onSurfaceVariant,
-                              ),
-                              children: <TextSpan>[
-                                const TextSpan(text: ' '),
-                                TextSpan(
-                                  text:
-                                      MyTranslations.auth.login.buttons.signUp,
-                                  style: context.textTheme.bodySmall!.copyWith(
-                                    color: context.colorScheme.onBackground,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
+                  CustomTextButton(
+                    child: RichText(
+                      text: TextSpan(
+                        text: MyTranslations.auth.login.buttons.goToRegister,
+                        style: context.textTheme.bodySmall!.copyWith(
+                          color: context.colorScheme.onSurfaceVariant,
+                        ),
+                        children: <TextSpan>[
+                          const TextSpan(text: ' '),
+                          TextSpan(
+                            text: MyTranslations.auth.login.buttons.signUp,
+                            style: context.textTheme.bodySmall!.copyWith(
+                              color: context.colorScheme.onBackground,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                          onPressed: () async {
-                            form.reset();
-                            MyBottomSheet.showBottomSheet(
-                              context: context,
-                              title: MyTranslations.auth.register.title,
-                              content: const RegisterForm(),
-                            );
-                          },
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).padding.bottom,
-                        )
-                      ],
+                        ],
+                      ),
                     ),
+                    onPressed: () async {
+                      form.reset();
+                      MyBottomSheet.showBottomSheet(
+                        context: context,
+                        title: MyTranslations.auth.register.title,
+                        content: const RegisterForm(),
+                      );
+                    },
                   ),
+                  SizedBox(
+                    height: MediaQuery.of(context).padding.bottom,
+                  )
                 ],
               ),
             ),

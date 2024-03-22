@@ -71,6 +71,8 @@ class AuthController extends _$AuthController {
   }
 
   Future<AuthResponse?> googleSignIn() async {
+    final authNotifier = ref.read(authProvider.notifier);
+    final toast = ref.read(toastProvider);
     final supabase = ref.read(apiProvider);
     // Google sign in on Android will work without providing the Android
     // Client ID registered on Google Cloud.
@@ -81,34 +83,32 @@ class AuthController extends _$AuthController {
     );
     final googleUser = await googleSignIn.signIn();
     if (googleUser == null) {
-      ref.read(toastProvider).showToastMessage(
-            message: 'Google sign-in cancelled',
-            type: ToastType.error,
-          );
+      toast.showToastMessage(
+        message: 'Google sign-in cancelled',
+        type: ToastType.error,
+      );
       return null;
     }
 
-    final googleAuth = await googleUser!.authentication;
+    final googleAuth = await googleUser.authentication;
     final accessToken = googleAuth.accessToken;
     final idToken = googleAuth.idToken;
 
     if (accessToken == null) {
-      ref.read(toastProvider).showToastMessage(
-            message: 'Google sign-in failed',
-            type: ToastType.error,
-          );
+      toast.showToastMessage(
+        message: 'Google sign-in failed',
+        type: ToastType.error,
+      );
       return null;
     }
     if (idToken == null) {
-      ref.read(toastProvider).showToastMessage(
-            message: 'Google sign-in failed',
-            type: ToastType.error,
-          );
+      toast.showToastMessage(
+        message: 'Google sign-in failed',
+        type: ToastType.error,
+      );
       return null;
     }
-
-    return supabase.instance.auth.signInWithIdToken(
-      provider: OAuthProvider.google,
+    await authNotifier.signInViaGoogle(
       idToken: idToken,
       accessToken: accessToken,
     );

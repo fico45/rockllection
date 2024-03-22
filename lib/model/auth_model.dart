@@ -2,8 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'auth_model.freezed.dart';
 
-/// Authentication class for this sample application.
-/// It should be self-explanatory.
 @freezed
 sealed class AuthModel with _$AuthModel {
   const factory AuthModel.signedIn({
@@ -11,6 +9,8 @@ sealed class AuthModel with _$AuthModel {
     required String displayName,
     required String email,
     required String token,
+    required String picture,
+    required bool emailVerified,
   }) = SignedIn;
   const AuthModel._();
   const factory AuthModel.signedOut() = SignedOut;
@@ -20,33 +20,14 @@ sealed class AuthModel with _$AuthModel {
       };
   static AuthModel fromJson({
     required Map<String, dynamic> data,
-  }) =>
-      AuthModel.signedIn(
-        id: data['member']['id'] ?? '',
-        displayName:
-            "${data['member']['firstName']} ${data['member']['lastName']}",
-        email: data['member']['email'],
-        token: data['token'] ?? '',
-      );
-
-  static AuthModel getUserFromJson({
-    required Map<String, dynamic> data,
+    required String token,
   }) =>
       AuthModel.signedIn(
         id: data['id'] ?? '',
-        displayName: "${data['firstName']} ${data['lastName']}",
-        email: data['email'],
+        displayName: data['user_metadata']['full_name'] ?? '',
+        email: data['email'] ?? '',
         token: data['token'] ?? '',
+        picture: data['user_metadata']['picture'] ?? '',
+        emailVerified: data['user_metadata']['email_verified'] ?? false,
       );
 }
-
-/* AuthModel fromJson({
-  required Map<String, dynamic> data,
-}) =>
-    AuthModel.signedIn(
-      id: data['member']['id'] ?? '',
-      displayName:
-          "${data['member']['firstName']} ${data['member']['lastName']}",
-      email: data['member']['email'],
-      token: data['token'] ?? '',
-    ); */

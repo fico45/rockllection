@@ -8,6 +8,7 @@ import 'package:rockllection/provider/form_validator/form_validator_provider.dar
 import 'package:rockllection/utils/consts.dart';
 import 'package:rockllection/modules/auth/auth_controller.dart';
 import 'package:rockllection/utils/extensions.dart';
+import 'package:rockllection/utils/toast.dart';
 import 'package:rockllection/utils/translations/translations.dart';
 
 class LoginForm extends ConsumerStatefulWidget {
@@ -93,6 +94,13 @@ class _LoginFormState extends ConsumerState<LoginForm> {
         ),
         SizedBox(
           height: MyFacts.size.sizeM,
+        ),
+        Button(
+          type: ButtonType.primary,
+          child: 'Toast',
+          onPressed: () {
+            ref.read(toastProvider).showToastMessage(message: 'Test toast');
+          },
         ),
         FormButton(
           type: ButtonType.primary,

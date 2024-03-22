@@ -19,7 +19,7 @@ class BottomNavBar extends ConsumerWidget {
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: true,
       showUnselectedLabels: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: context.colorScheme.background,
       selectedItemColor: theme == ThemeMode.dark
           ? context.colorScheme.primary
           : context.colorScheme.tertiary,

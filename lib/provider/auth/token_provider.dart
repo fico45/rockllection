@@ -2,75 +2,83 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rockllection/utils/storage/secure_storage.dart';
 
 part 'token_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-TokenProvider tokenProvider(TokenProviderRef ref) => TokenProvider(ref);
+Token token(TokenRef ref) => Token(ref);
 
-abstract class TokenProviderProtocol {
+abstract class TokenProtocol {
   Future<void> remove();
-  Future<void> saveToken(String token);
-  Future<String?> fetchToken();
+  Future<void> saveToken({
+    required String idToken,
+    required String accessToken,
+  });
+  Future<LoginTokens?> fetchToken();
 }
 
-class TokenProvider implements TokenProviderProtocol {
-  TokenProvider(this.ref);
+class Token implements TokenProtocol {
+  Token(this.ref);
 
   final Ref ref;
-  String? _token;
+  LoginTokens? _tokens;
 
   @override
   Future<void> remove() async {
-    _token = null;
-    final prefs = await SharedPreferences.getInstance();
+    _tokens = null;
 
     try {
-      await SecureStorage.delete(key: StoreKey.token.toString());
+      await SecureStorage.delete(key: 'idToken');
+      await SecureStorage.delete(key: 'accessToken');
     } on Exception {}
-
-    await prefs.remove(StoreKey.user.toString());
   }
 
   @override
-  Future<void> saveToken(String token) async {
-    _token = token;
+  Future<void> saveToken({
+    required String idToken,
+    required String accessToken,
+  }) async {
+    _tokens = LoginTokens(idToken: idToken, accessToken: accessToken);
 
     try {
-      await SecureStorage.write(key: StoreKey.token.toString(), value: token);
+      await SecureStorage.write(key: 'idToken', value: idToken);
+      await SecureStorage.write(key: 'accessToken', value: accessToken);
     } on Exception catch (e) {
       debugPrint(e.toString());
     }
   }
 
   @override
-  Future<String?> fetchToken() async {
-    String? tokenValue;
-
-    tokenValue = await SecureStorage.read(key: StoreKey.token.toString());
-
+  Future<LoginTokens?> fetchToken() async {
+    final idToken = await SecureStorage.read(key: 'idToken');
+    final accessToken = await SecureStorage.read(key: 'accessToken');
+    final tokenValue = idToken != null && accessToken != null
+        ? LoginTokens(idToken: idToken, accessToken: accessToken)
+        : null;
     try {
       if (tokenValue != null) {
-        _token = tokenValue;
+        _tokens = tokenValue;
 
-        final aFlag = JwtDecoder.isExpired(_token!);
+        final aFlag = JwtDecoder.isExpired(idToken!);
         if (aFlag) {
-          _token = null;
+          _tokens = null;
         }
       }
     } on Exception {
-      return _token;
+      return _tokens;
     }
 
-    return _token;
+    return _tokens;
   }
 }
 
-enum StoreKey {
-  token,
-  expireTime,
-  user,
-  locale,
+class LoginTokens {
+  final String idToken;
+  final String accessToken;
+
+  LoginTokens({
+    required this.idToken,
+    required this.accessToken,
+  });
 }

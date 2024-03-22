@@ -18,23 +18,24 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthModel {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String id, String displayName, String email, String token)
+    required TResult Function(String id, String displayName, String email,
+            String token, String picture, bool emailVerified)
         signedIn,
     required TResult Function() signedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String id, String displayName, String email, String token)?
+    TResult? Function(String id, String displayName, String email, String token,
+            String picture, bool emailVerified)?
         signedIn,
     TResult? Function()? signedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id, String displayName, String email, String token)?
+    TResult Function(String id, String displayName, String email, String token,
+            String picture, bool emailVerified)?
         signedIn,
     TResult Function()? signedOut,
     required TResult orElse(),
@@ -84,7 +85,13 @@ abstract class _$$SignedInImplCopyWith<$Res> {
           _$SignedInImpl value, $Res Function(_$SignedInImpl) then) =
       __$$SignedInImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String id, String displayName, String email, String token});
+  $Res call(
+      {String id,
+      String displayName,
+      String email,
+      String token,
+      String picture,
+      bool emailVerified});
 }
 
 /// @nodoc
@@ -102,6 +109,8 @@ class __$$SignedInImplCopyWithImpl<$Res>
     Object? displayName = null,
     Object? email = null,
     Object? token = null,
+    Object? picture = null,
+    Object? emailVerified = null,
   }) {
     return _then(_$SignedInImpl(
       id: null == id
@@ -120,6 +129,14 @@ class __$$SignedInImplCopyWithImpl<$Res>
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
+      picture: null == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String,
+      emailVerified: null == emailVerified
+          ? _value.emailVerified
+          : emailVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -131,7 +148,9 @@ class _$SignedInImpl extends SignedIn {
       {required this.id,
       required this.displayName,
       required this.email,
-      required this.token})
+      required this.token,
+      required this.picture,
+      required this.emailVerified})
       : super._();
 
   @override
@@ -142,10 +161,14 @@ class _$SignedInImpl extends SignedIn {
   final String email;
   @override
   final String token;
+  @override
+  final String picture;
+  @override
+  final bool emailVerified;
 
   @override
   String toString() {
-    return 'AuthModel.signedIn(id: $id, displayName: $displayName, email: $email, token: $token)';
+    return 'AuthModel.signedIn(id: $id, displayName: $displayName, email: $email, token: $token, picture: $picture, emailVerified: $emailVerified)';
   }
 
   @override
@@ -157,11 +180,15 @@ class _$SignedInImpl extends SignedIn {
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.token, token) || other.token == token));
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.emailVerified, emailVerified) ||
+                other.emailVerified == emailVerified));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, displayName, email, token);
+  int get hashCode => Object.hash(
+      runtimeType, id, displayName, email, token, picture, emailVerified);
 
   @JsonKey(ignore: true)
   @override
@@ -172,35 +199,37 @@ class _$SignedInImpl extends SignedIn {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String id, String displayName, String email, String token)
+    required TResult Function(String id, String displayName, String email,
+            String token, String picture, bool emailVerified)
         signedIn,
     required TResult Function() signedOut,
   }) {
-    return signedIn(id, displayName, email, token);
+    return signedIn(id, displayName, email, token, picture, emailVerified);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String id, String displayName, String email, String token)?
+    TResult? Function(String id, String displayName, String email, String token,
+            String picture, bool emailVerified)?
         signedIn,
     TResult? Function()? signedOut,
   }) {
-    return signedIn?.call(id, displayName, email, token);
+    return signedIn?.call(
+        id, displayName, email, token, picture, emailVerified);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id, String displayName, String email, String token)?
+    TResult Function(String id, String displayName, String email, String token,
+            String picture, bool emailVerified)?
         signedIn,
     TResult Function()? signedOut,
     required TResult orElse(),
   }) {
     if (signedIn != null) {
-      return signedIn(id, displayName, email, token);
+      return signedIn(id, displayName, email, token, picture, emailVerified);
     }
     return orElse();
   }
@@ -242,13 +271,17 @@ abstract class SignedIn extends AuthModel {
       {required final String id,
       required final String displayName,
       required final String email,
-      required final String token}) = _$SignedInImpl;
+      required final String token,
+      required final String picture,
+      required final bool emailVerified}) = _$SignedInImpl;
   const SignedIn._() : super._();
 
   String get id;
   String get displayName;
   String get email;
   String get token;
+  String get picture;
+  bool get emailVerified;
   @JsonKey(ignore: true)
   _$$SignedInImplCopyWith<_$SignedInImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -292,8 +325,8 @@ class _$SignedOutImpl extends SignedOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String id, String displayName, String email, String token)
+    required TResult Function(String id, String displayName, String email,
+            String token, String picture, bool emailVerified)
         signedIn,
     required TResult Function() signedOut,
   }) {
@@ -303,8 +336,8 @@ class _$SignedOutImpl extends SignedOut {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String id, String displayName, String email, String token)?
+    TResult? Function(String id, String displayName, String email, String token,
+            String picture, bool emailVerified)?
         signedIn,
     TResult? Function()? signedOut,
   }) {
@@ -314,7 +347,8 @@ class _$SignedOutImpl extends SignedOut {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id, String displayName, String email, String token)?
+    TResult Function(String id, String displayName, String email, String token,
+            String picture, bool emailVerified)?
         signedIn,
     TResult Function()? signedOut,
     required TResult orElse(),

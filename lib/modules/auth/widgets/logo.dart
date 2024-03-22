@@ -7,18 +7,31 @@ class MyLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MyFacts.size.sizeXL,
-      width: MyFacts.size.sizeXXL * 2,
-      decoration: BoxDecoration(
-        color: context.colorScheme.primaryContainer,
-        borderRadius: BorderRadius.circular(50),
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: MyFacts.size.sizeXS,
+        horizontal: MediaQuery.of(context).size.width * 0.2,
       ),
-      child: Center(
-          child: Text('Your logo here',
+      child: Container(
+        decoration: BoxDecoration(
+          color: context.colorScheme.primaryContainer,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: MyFacts.size.sizeXS,
+            horizontal: MyFacts.size.sizeM,
+          ),
+          child: Center(
+            child: Text(
+              'Your logo here',
               style: context.textTheme.bodyLarge!.copyWith(
                 color: context.colorScheme.onPrimaryContainer,
-              ))),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
